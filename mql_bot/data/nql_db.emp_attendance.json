@@ -1,0 +1,32 @@
+[{
+  "_id": {
+    "$oid": "66c60f0edd20caf795439edf"
+  },
+  "Emp_ID": 35119,
+  "Date": "6/20/20",
+  "Attendance": "Present"
+},
+{
+  "_id": {
+    "$oid": "66c60f0edd20caf795439ee0"
+  },
+  "Emp_ID": 75049,
+  "Date": "6/20/20",
+  "Attendance": "OOD"
+},
+{
+  "_id": {
+    "$oid": "66c60f0edd20caf795439ee1"
+  },
+  "Emp_ID": 96995,
+  "Date": "6/20/20",
+  "Attendance": "OOD"
+},
+{
+  "_id": {
+    "$oid": "66c60f0edd20caf795439ee2"
+  },
+  "Emp_ID": 30911,
+  "Date": "6/20/20",
+  "Attendance": "OOD"
+}]

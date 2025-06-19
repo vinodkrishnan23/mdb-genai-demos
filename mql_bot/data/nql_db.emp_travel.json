@@ -1,0 +1,36 @@
+[{
+  "_id": {
+    "$oid": "66c60f35dd20caf795439ee4"
+  },
+  "cc_num": {
+    "$numberLong": "3598215285024750"
+  },
+  "travel_start_date": "7/15/20"
+},
+{
+  "_id": {
+    "$oid": "66c60f35dd20caf795439ee5"
+  },
+  "cc_num": {
+    "$numberLong": "571465035400"
+  },
+  "travel_start_date": "6/24/20"
+},
+{
+  "_id": {
+    "$oid": "66c60f35dd20caf795439ee6"
+  },
+  "cc_num": {
+    "$numberLong": "3577663406369440"
+  },
+  "travel_start_date": "8/15/20"
+},
+{
+  "_id": {
+    "$oid": "66c60f35dd20caf795439ee7"
+  },
+  "cc_num": {
+    "$numberLong": "6011348830550190"
+  },
+  "travel_start_date": "3/3/20"
+}]
