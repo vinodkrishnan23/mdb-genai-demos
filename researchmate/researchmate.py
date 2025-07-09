@@ -17,6 +17,12 @@ import json
 MODEL_NAME = "voyage-multimodal-3"
 VOYAGEAI_API_KEY = st.secrets["VOYAGEAI_KEY"]
 GENERATIVE_VLM = "anthropic.claude-3-5-sonnet-20240620-v1:0"
+
+### The Voyage client and MongoDB client setup
+# Initialize VoyageAI client
+# Ensure you have the VoyageAI API key set in your Streamlit secrets
+if not VOYAGEAI_API_KEY:
+    raise ValueError("VoyageAI API key is not set in Streamlit secrets.")
 vo = Client(api_key=VOYAGEAI_API_KEY)
 mclient = MongoClient(st.secrets["MONGODB_URI"])
 mcollection = mclient[st.secrets["DB_NAME"]][st.secrets["COLLECTION_NAME"]]
@@ -90,7 +96,7 @@ def batch_embed_documents(docs: List[str], vo, model_name: str, batch_size: int 
             # Create batch input format
             batch_input = [[page] for page in batch]
             
-            # Get embeddings for current batch
+            # Get Voyage multi-modal embeddings for current batch
             batch_embeddings = vo.multimodal_embed(
                 inputs=batch_input,
                 model=model_name,
@@ -184,7 +190,7 @@ def orchestrateRAG(uploaded_file):
         createVectorSearchIndex()
         return file_name
     
-def queryVectorStore(file_name, query, mcollection, index_name, path='embedding',num_candidates=10, limit=3,):
+def queryVectorStore(file_name, query, mcollection, index_name, path='embedding',num_candidates=100, limit=10,):
     query_vector = np.array(
         vo.multimodal_embed(
             inputs=[[query]],
@@ -273,8 +279,12 @@ def showPages(results):
         st.write(f"Page Number: {result['page_num']}")
     
 
-st.set_page_config(layout="wide")
-st.title("Upload PDF and start research!!")
+st.set_page_config(layout="wide",page_icon="./img/finkin.png",page_title="FinKin ResearchMate")
+col1, col2 = st.columns([10,10])
+with col1:
+    st.image("./img/finkin.png", width=10000) # This displays the logo on the page
+with col2:
+    st.title("")
 relevant_docs=""
 #client = OpenAI(api_key=st.secrets["OPENAI_API_KEY"])
 
